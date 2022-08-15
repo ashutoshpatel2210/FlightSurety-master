@@ -288,7 +288,7 @@ contract FlightSuretyApp {
         bool isRegistered;
         uint8[3] indexes;        
     }
-
+    
     // Track all registered oracles
     mapping(address => Oracle) private oracles;
 
@@ -315,7 +315,9 @@ contract FlightSuretyApp {
     // they fetch data and submit a response
     event OracleRequest(uint8 index, address airline, string flight, uint256 timestamp);
 
-
+    function getRegistrationFee() public pure returns(uint256) {
+        return REGISTRATION_FEE;
+    }
     // Register an oracle with the contract
     function registerOracle
                             (
